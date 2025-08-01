@@ -11,17 +11,16 @@ httpx
 pdfplumber
 PyMuPDF
 python-docx
-import google.generativeai as genai
 
 # Firebase
 firebase-admin
 
-# AI/ML Integration (Optional, if using Gemini or other models)
+# AI/ML Integration
 openai
 google-generativeai
 
-# CORS
-fastapi[all]
+# CORS (already included in fastapi)
+# fastapi[all]  # Remove this as it's redundant with fastapi above
 
 # Environment Variables
 python-dotenv
