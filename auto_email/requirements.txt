@@ -17,7 +17,7 @@ firebase-admin
 
 # AI/ML Integration (Optional, if using Gemini or other models)
 openai
-
+camelot-py[cv]
 # CORS
 fastapi[all]
 
