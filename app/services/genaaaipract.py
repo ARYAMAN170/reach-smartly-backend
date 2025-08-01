@@ -1,6 +1,6 @@
 import os
-from google import genai
 from google.genai import types
+import google.generativeai as genai
 
 def generate_content(
     prompt: str,

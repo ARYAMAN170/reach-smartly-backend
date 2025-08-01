@@ -11,6 +11,7 @@ httpx
 pdfplumber
 PyMuPDF
 python-docx
+import google.generativeai as genai
 
 # Firebase
 firebase-admin
