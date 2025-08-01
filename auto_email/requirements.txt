@@ -17,7 +17,6 @@ firebase-admin
 
 # AI/ML Integration (Optional, if using Gemini or other models)
 openai
-google-generativeai
 
 # CORS
 fastapi[all]
