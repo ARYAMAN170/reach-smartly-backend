@@ -1,3 +1,26 @@
-fastapi~=0.116.1
-pydantic~=2.11.7
-pandas~=2.3.1
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+aiofiles
+jinja2
+email-validator
+httpx
+
+# PDF and Resume Parsing
+pdfplumber
+PyMuPDF
+python-docx
+
+# Firebase
+firebase-admin
+
+# AI/ML Integration (Optional, if using Gemini or other models)
+openai
+google-generativeai
+
+# CORS
+fastapi[all]
+
+# Environment Variables
+python-dotenv
