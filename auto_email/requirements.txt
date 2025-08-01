@@ -12,12 +12,10 @@ pdfplumber
 PyMuPDF
 python-docx
 
-# Firebase
-firebase-admin
 google-generativeai>=0.3.0
 
 # AI/ML Integration (Optional, if using Gemini or other models)
-openai
+
 camelot-py[cv]
 # CORS
 fastapi[all]
