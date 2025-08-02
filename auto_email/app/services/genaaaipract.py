@@ -16,7 +16,7 @@ def generate_content(
       - environment var GEMINI_API_KEY set.
     """
     # 1. Resolve API key
-    key = os.getenv('GEMINI_API_KEY')
+    key = "AIzaSyCVs4PWrKnunpTfEPobwAd7pFAWkPXQZEo"
     if not key:
         raise RuntimeError("GEMINI_API_KEY not set and no api_key argument provided.")
 
