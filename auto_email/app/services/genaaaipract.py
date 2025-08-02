@@ -1,29 +1,23 @@
-import os
 import google.generativeai as genai
-from dotenv import load_dotenv
-
-load_dotenv()
 from google.genai import types
 
 def generate_content(
     prompt: str,
-    model: str = "gemini-2.5-flash-lite",
+    model: str = "gemini-2.0-flash-exp",
 ) -> str:
     """
-    Stream the full generated text from Gemini.
-    Requires either:
-      - api_key passed in, or
-      - environment var GEMINI_API_KEY set.
+    Generate content using Gemini AI with hardcoded API key.
     """
-    # 1. Resolve API key
-    key = "AIzaSyCVs4PWrKnunpTfEPobwAd7pFAWkPXQZEo"
-    if not key:
-        raise RuntimeError("GEMINI_API_KEY not set and no api_key argument provided.")
+    # Hardcoded API key as requested
+    api_key = "AIzaSyCVs4PWrKnunpTfEPobwAd7pFAWkPXQZEo"
+    
+    if not api_key:
+        raise RuntimeError("API key not available.")
 
-    # 2. Initialize client
-    client = genai.Client(api_key=key)
+    # Initialize client
+    client = genai.Client(api_key=api_key)
 
-    # 3. Build the single-content request
+    # Build the content request
     contents = [
         types.Content(
             role="user",
@@ -31,22 +25,26 @@ def generate_content(
         )
     ]
 
-    # 4. (Optional) Tools & thinking config
-    #    Remove these if you don’t actually need search tools
-    tools = [ types.Tool(googleSearch=types.GoogleSearch()) ]
+    # Configuration
+    tools = [types.Tool(googleSearch=types.GoogleSearch())]
     config = types.GenerateContentConfig(
         thinking_config=types.ThinkingConfig(thinking_budget=0),
         tools=tools
     )
 
-    # 5. Stream and collect
+    # Stream and collect response
     full_response = []
-    for chunk in client.models.generate_content_stream(
-        model=model,
-        contents=contents,
-        config=config
-    ):
-        full_response.append(chunk.text)
+    try:
+        for chunk in client.models.generate_content_stream(
+            model=model,
+            contents=contents,
+            config=config
+        ):
+            if chunk.text:
+                full_response.append(chunk.text)
+    except Exception as e:
+        print(f"Error during generation: {e}")
+        return "Error generating content"
 
     return "".join(full_response)
 
