@@ -1,11 +1,21 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
 # Import both routers
 from app.api.routes_hr import router as hr_router
 from app.api.routes_email import router as email_router
 from app.api.routes_resume import router as resume_router
 # Initialize the FastAPI app
-app = FastAPI(title="Smart Outreach API")
+app = FastAPI(
+    title="Smart Outreach API",
+    description="AI-powered email outreach and resume parsing API",
+    version="1.0.0"
+)
 
 # CORS (Cross-Origin Resource Sharing) configuration
 # This allows your frontend (e.g., running on localhost:8080) to communicate with your backend.
@@ -13,8 +23,11 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
+        "http://localhost:3000",
+        "http://localhost:5173",
         "https://reach-smartly.vercel.app",                       # no trailing slash
-        "https://reach-smartly-git-main-aryaman170s-projects.vercel.app"
+        "https://reach-smartly-git-main-aryaman170s-projects.vercel.app",
+        "https://*.onrender.com"
     ],
     allow_origin_regex=r"https://.*\.vercel\.app",                # catch any other Vercel preview URLs
     allow_credentials=True,
@@ -30,5 +43,13 @@ app.include_router(resume_router, prefix="/api", tags=["Resume Skills"])
 # Optional: Add a root endpoint for basic health checks
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the Smart Outreach API"}
+    return {
+        "message": "Welcome to the Smart Outreach API",
+        "status": "healthy",
+        "version": "1.0.0"
+    }
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy", "service": "Smart Outreach API"}
 
