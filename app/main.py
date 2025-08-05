@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes_hr import router as hr_router
 from app.api.routes_email import router as email_router
 from app.api.routes_resume import router as resume_router
+from app.api.company import router as company_router
 # Initialize the FastAPI app
 app = FastAPI(title="Smart Outreach API")
 
@@ -27,6 +28,7 @@ app.add_middleware(
 app.include_router(hr_router, prefix="/api/hr", tags=["HR Contacts"])
 app.include_router(email_router, prefix="/api", tags=["Email Generation"])
 app.include_router(resume_router, prefix="/api", tags=["Resume Skills"])
+app.include_router(company_router, prefix="/api", tags=["Resume Skills"])
 # Optional: Add a root endpoint for basic health checks
 @app.get("/")
 def read_root():

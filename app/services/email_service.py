@@ -26,22 +26,26 @@ def generate_outreach_email(
     # Define clear instructions per email type
     instructions = {
         "introduction": [
-            "1. Do NOT include any of these instructions or prompt details in the output.",
-            "2. Generate a concise, professional SUBJECT line that reflects introduction intent.",
-            "3. Write an email body that: \
-               a) Greets the contact by name.\n               b) Mentions their role at the company.\n               c) Briefly introduces the sender's background and key skills.\n               d) Expresses genuine interest in opportunities.\n               e) Suggests a next step or availability to connect.\n               f) Closes with 'Best regards,' and the sender's name {user_name}.",
+            "1. SUBJECT: Directly address the person by name and include how you can be useful to their company. Use "
+            "simple, powerful words.",
+            "2. BODY: Write three concise paragraphs:\n   a) Short self-introduction highlighting one key achievement "
+            "and clearly state: 'I am seeking an internship opportunity and would appreciate an interview.'\n   b) "
+            "Explain why you are contacting them specifically and what excites you about working at their company.\n  "
+            " c) Ask what you need from them: 'How can I start the interview process?'. End with a simple question If "
+            "they can be helpful regarding this matter'\n",
+            "3. First line of the body must grab attention by stating how your skills will impact their team.\n4. "
+            "Close with 'Best regards,' followed by {user_name}."
         ],
         "follow_up": [
-            "1. Do NOT include any of these instructions or prompt details in the output.",
-            "2. Generate a concise, professional SUBJECT line indicating a follow-up.",
-            "3. Write an email body that: \
-               a) Opens with a polite greeting and references the previous email.\n               b) Reaffirms interest in the role/company.\n               c) Asks for an update on the process.\n               d) Restates one key qualification.\n               e) Thanks the recipient and closes with your name {user_name}.",
+            "1. SUBJECT: Polite follow-up regarding internship inquiry at {contact.Company}.",
+            "2. BODY: Open with greeting referencing previous email.\n   a) Reaffirm interest in the internship.\n   "
+            "b) Restate one key qualification.\n   c) Politely ask for an update: 'I know you're busy, but could you "
+            "please let me know the status?'\n3. Close with 'Best regards,' and {user_name}."
         ],
         "thank_you": [
-            "1. Do NOT include any of these instructions or prompt details in the output.",
-            "2. Generate a concise, professional SUBJECT line expressing thanks.",
-            "3. Write an email body that: \
-               a) Starts with a sincere thank you and references the interview/opportunity.\n               b) Highlights one positive takeaway.\n               c) Reiterates enthusiasm for the role/company.\n               d) Closes with 'Kind regards,' or 'Sincerely,' and your name {user_name}.",
+            "1. SUBJECT: Thank you for your time, {contact.Name}.",
+            "2. BODY: Thank them for the opportunity, mention a positive takeaway, and reiterate enthusiasm.\n3. "
+            "Close with 'Sincerely,' or 'Kind regards,' and {user_name}."
         ],
     }
 
@@ -82,3 +86,4 @@ def generate_outreach_email(
 
     except Exception as e:
         return f"Error: Could not generate email. Details: {e}"
+

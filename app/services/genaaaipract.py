@@ -20,7 +20,7 @@ def generate_content(
     """
 
     # 1. Resolve API key
-    key = "AIzaSyCYx3Ys4ZoyDCKVs-wNqNSc7fU9w6qja-I"
+    key = "AIzaSyByzQrx5FP9QdSBYz5waqf1tf91KqvNvJQ"
     if not key:
         raise RuntimeError(
             "GEMINI_API_KEY not set in environment variables and no api_key argument provided. "
@@ -103,7 +103,7 @@ def generate_content_with_config(
 
 if __name__ == "__main__":
     # Test the function
-    test_prompt = "Write a brief hello message"
+    test_prompt = "tell me about apple"
 
     # Test basic function
     print("Testing basic generate_content:")
