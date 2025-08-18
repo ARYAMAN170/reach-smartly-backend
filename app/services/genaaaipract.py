@@ -1,10 +1,11 @@
 import os
 import google.generativeai as genai
+from app.core.config import settings
 
 
 def generate_content(
         prompt: str,
-        model: str = "gemini-1.5-flash",
+        model: str = "gemini-2.0-flash-exp",
         api_key: str = None
 ) -> str:
     """
@@ -12,7 +13,7 @@ def generate_content(
 
     Args:
         prompt: The input text prompt
-        model: The Gemini model to use (default: gemini-1.5-flash)
+        model: The Gemini model to use (default: gemini-2.0-flash-exp)
         api_key: Optional API key (if not provided, uses GEMINI_API_KEY env var)
 
     Returns:
@@ -20,7 +21,7 @@ def generate_content(
     """
 
     # 1. Resolve API key
-    key = "AIzaSyByzQrx5FP9QdSBYz5waqf1tf91KqvNvJQ"
+    key = api_key or settings.GEMINI_API_KEY or os.getenv("GEMINI_API_KEY")
     if not key:
         raise RuntimeError(
             "GEMINI_API_KEY not set in environment variables and no api_key argument provided. "
@@ -46,10 +47,9 @@ def generate_content(
     except Exception as e:
         return f"Error generating content: {str(e)}"
 
-
 def generate_content_with_config(
         prompt: str,
-        model: str = "gemini-1.5-flash",
+        model: str = "gemini-2.0-flash-exp",
         temperature: float = 0.7,
         max_output_tokens: int = 1024,
         api_key: str = None
@@ -69,7 +69,7 @@ def generate_content_with_config(
     """
 
     # 1. Resolve API key
-    key = api_key or os.getenv("GEMINI_API_KEY")
+    key = api_key or settings.GEMINI_API_KEY or os.getenv("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY not set and no api_key argument provided.")
 

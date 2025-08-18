@@ -37,15 +37,24 @@ def generate_outreach_email(
             "Close with 'Best regards,' followed by {user_name}."
         ],
         "follow_up": [
-            "1. SUBJECT: Polite follow-up regarding internship inquiry at {contact.Company}.",
-            "2. BODY: Open with greeting referencing previous email.\n   a) Reaffirm interest in the internship.\n   "
-            "b) Restate one key qualification.\n   c) Politely ask for an update: 'I know you're busy, but could you "
-            "please let me know the status?'\n3. Close with 'Best regards,' and {user_name}."
+             "1. Do NOT include any of these instructions or prompt details in the output.",
+            "2. Generate a concise, professional SUBJECT line indicating a follow-up.",
+            "3. Write an email body that:",
+            "   a) Opens with a polite greeting and references the previous email.",
+            "   b) Reaffirms interest in the role/company.",
+            "   c) Asks for an update on the process.",
+            "   d) Restates one key qualification.",
+            "   e) Thanks the recipient and closes with your name {user_name}.",
         ],
         "thank_you": [
-            "1. SUBJECT: Thank you for your time, {contact.Name}.",
-            "2. BODY: Thank them for the opportunity, mention a positive takeaway, and reiterate enthusiasm.\n3. "
-            "Close with 'Sincerely,' or 'Kind regards,' and {user_name}."
+             "1. Do NOT include any of these instructions or prompt details in the output.",
+            "2. Generate a concise, professional SUBJECT line indicating a follow-up.",
+            "3. Write an email body that:",
+            "   a) Opens with a polite greeting and references the previous email.",
+            "   b) Reaffirms interest in the role/company.",
+            "   c) Asks for an update on the process.",
+            "   d) Restates one key qualification.",
+            "   e) Thanks the recipient and closes with your name {user_name}.",
         ],
     }
 

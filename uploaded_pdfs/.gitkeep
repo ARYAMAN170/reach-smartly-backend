@@ -1,0 +1,2 @@
+# This file ensures the uploaded_pdfs directory is tracked by git
+# The directory is needed for file uploads but should remain empty in the repo

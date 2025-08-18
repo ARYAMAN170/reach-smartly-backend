@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: smart-outreach-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    autoDeploy: false
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.10"
+      - key: GEMINI_API_KEY
+        sync: false  # This should be set manually in Render dashboard
+      - key: SERPER_API_KEY
+        sync: false  # This should be set manually in Render dashboard
+      - key: OPENAI_API_KEY
+        sync: false  # This should be set manually in Render dashboard
+      - key: FIREBASE_CREDENTIALS
+        sync: false  # This should be set manually in Render dashboard
